@@ -12,8 +12,16 @@ async function userLog() {
             body: JSON.stringify({
                 "username": username,
                 "password": password
-            })
-
+            }),
+            headers: {
+                "Content-type":"application/json"
+            }
         })
+    }   
+    else {
+        console.log('hello')
+        localStorage.setItem("username", username)
+        localStorage.setItem("password",password)
+        window.location.href="mainpage.html"
     }
 }
