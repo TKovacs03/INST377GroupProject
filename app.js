@@ -1,9 +1,10 @@
 const supabaseClient = require('@supabase/supabase-js')
 const express = require('express')
-
 const app = express()
+app.use(express.json())
 const port = 3000
 app.use(express.static(__dirname + '/public'))
+
 
 
 const supabaseURL = 'https://prwypsbxgfzqwqltvszm.supabase.co'
@@ -11,11 +12,29 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = supabaseClient.createClient(supabaseURL,supabaseKey)
 
 app.get('/', (req, res) => {
-    res.sendFile('public/mainpage.html', {root: __dirname})
+    res.sendFile('public/login.html', {root:__dirname})
 })
 
+
+
+app.post('/signup', async (req,res) => {
+    console.log(req.body)
+    var username = req.body.username
+    var password = req.body.password
+    const {error} = await supabase
+        .from('users')
+        .insert({'username': username, 'password': password})
+        if(error) {
+
+            console.log(error)
+            res.send(error) 
+        }
+    
+})
+
+
+
 app.get('/test', async (req, res) => {
-    console.log('Hooray!')
 
     const {data, error} = await supabase
         .from('users')
@@ -26,5 +45,5 @@ app.get('/test', async (req, res) => {
 
 
 app.listen(port, () => {
-    console.log('idk what is happening')
+
 })
