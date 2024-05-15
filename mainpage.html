@@ -1,0 +1,50 @@
+
+<!---Current design ideas -
+
+    Important - how will we load user data? Ask for username on load?
+
+    Search bar is basic on main page, but links to dedicated search result page with filtering options
+    Maybe no popular/reccommended section - only way to get that information is from our own database, which will only have our info
+    Do randomized genre +random selection of books instead,  dynamically load personalized stuff from database
+    Will likely need revision, I don't really know what is possible with Supabase
+    Use a library to display book covers, some sort of carousel
+    Need one more library
+
+-->
+<html>
+    <head>
+        <title>InfoBooks</title>
+    </head>
+    
+    <body>
+
+        <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png" width="100px">
+        <h1 class="title">InfoBooks</h1>
+        
+        <!--will link to search page with results of whatever you searched, filters/advanced searching present-->
+        <div id="search">
+            <form id="searchBar">
+            <input type="text" placeholder="Title, author, etc.">
+            <button type="button">Search</button>
+            </form>
+        </div>
+
+    
+        <div class="libCarousel" id="recGenre">
+            <h2 id="genName"></h2> 
+        </div>
+        
+        <div class="libCarousel" id="userLib">
+            <h2 id="yourBooks"></h2>
+        </div>
+
+        <div class="libCarousel" id="recGenre">
+            <h2 id="genName"></h2>
+        </div>
+
+
+    </body>
+
+
+
+</html>
