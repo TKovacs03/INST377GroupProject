@@ -19,9 +19,23 @@ async function userLog() {
         })
     }   
     else {
-        console.log('hello')
-        localStorage.setItem("username", username)
-        localStorage.setItem("password",password)
-        window.location.href="mainpage.html"
+        await fetch(`${host}/login?user=${username}`)
+        .then((res) => res.json())
+        .then(res => {
+            if (res.length > 0){
+                if(password == res[0].password){
+                localStorage.setItem("username", username)
+                localStorage.setItem("password",password)
+                window.location.href="mainpage.html"
+                }
+                else{
+                    alert('incorrect password')
+                }
+            }
+            else{
+                alert('incorrect username')
+            }
+        }
+        )
     }
 }

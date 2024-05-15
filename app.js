@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 
 
 app.post('/signup', async (req,res) => {
-    console.log(req.body)
     var username = req.body.username
     var password = req.body.password
     const {error} = await supabase
@@ -32,6 +31,20 @@ app.post('/signup', async (req,res) => {
     
 })
 
+app.get('/login', async (req,res) => {
+    user = req.query.user
+    const {data, error} = await supabase
+        .from('users')
+        .select()
+        .eq('username',user)
+        console.log(data)
+        if(error){
+            res.send({})
+        }
+        else{
+            res.send(data)
+        }
+})
 
 
 app.get('/test', async (req, res) => {
