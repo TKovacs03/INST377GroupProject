@@ -12,9 +12,9 @@
         
         <!--will link to search page with results of whatever you searched, filters/advanced searching present-->
         <div id="search">
-            <form id="searchBar">
-            <input type="text" placeholder="Title, author, etc.">
-            <button type="button">Search</button>
+            <form id="searchBar" onsubmit="searchBook(); return false">
+            <input type="text" id="usersearch" placeholder="Title, author, etc.">
+            <button type="submit">Search</button>
             </form>
         </div>
 

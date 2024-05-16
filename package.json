@@ -13,5 +13,13 @@
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "nodemon": "^3.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TKovacs03/INST377GroupProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TKovacs03/INST377GroupProject/issues"
+  },
+  "homepage": "https://github.com/TKovacs03/INST377GroupProject#readme"
 }
