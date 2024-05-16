@@ -3,9 +3,11 @@
     <head>
         <title>InfoBooks</title>
         <script src="mainpage.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+        <link rel="stylesheet" href="../glide.core.min.css">
     </head>
     
-    <body>
+    <body onload="popBesties();">
 
         <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png" width="100px">
         <h1 class="title">InfoBooks</h1>
@@ -18,6 +20,16 @@
             </form>
         </div>
 
+        <h2>Bestsellers</h2>
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+                <ul id="besties" class="glide__slides"></ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&lt;</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&gt;</button>
+            </div>
+        </div> 
     
         <div class="libCarousel" id="recGenre">
             <h2 id="genName"></h2> 

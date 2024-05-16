@@ -26,6 +26,7 @@ async function userLog() {
                 if(password == res[0].password){
                 localStorage.setItem("username", username)
                 localStorage.setItem("password",password)
+                localStorage.setItem("user_id",`${res[0].user_id}`)
                 window.location.href="mainpage.html"
                 }
                 else{
