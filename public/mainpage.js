@@ -1,8 +1,3 @@
-function loadPage(){
-    console.log(localStorage.getItem('username'))
-}
-
-window.onload = loadPage()
 
 function getToday() {
     const date = new Date();
@@ -19,6 +14,7 @@ async function popBesties() {
     var myBooks = fetch(`https://api.nytimes.com/svc/books/v3/lists/${today}/combined-print-and-e-book-fiction.json?api-key=48tFA6TjZPbiddgyFZgHlijxAT88SpEz`)
     .then((res) => res.json());
     myBooks = await myBooks;
+    console.log(myBooks)
     for (let i = 0; i < 10; i++) {
         var currentBook = myBooks.results.books[i];
         var bookIcon = document.createElement('a');

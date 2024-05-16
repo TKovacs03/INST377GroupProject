@@ -37,7 +37,6 @@ app.get('/login', async (req,res) => {
         .from('users')
         .select()
         .eq('username',user)
-        console.log(data)
         if(error){
             res.send({})
         }
