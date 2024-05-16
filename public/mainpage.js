@@ -8,20 +8,26 @@ function getToday() {
     return properDate;
 }
 
+function loadBook(title,author){
+    localStorage.setItem('title',title)
+    localStorage.setItem('author',author)
+    window.location = 'book.html'
+}
+
+
 async function popBesties() {
     const slideList = document.getElementById('besties');
     var today = getToday();
     var myBooks = fetch(`https://api.nytimes.com/svc/books/v3/lists/${today}/combined-print-and-e-book-fiction.json?api-key=48tFA6TjZPbiddgyFZgHlijxAT88SpEz`)
     .then((res) => res.json());
     myBooks = await myBooks;
-    console.log(myBooks)
+    function correctArgMaker(title, author) {
+        return () => loadBook(title, author);
+    }
     for (let i = 0; i < 10; i++) {
         var currentBook = myBooks.results.books[i];
         var bookIcon = document.createElement('a');
-        var myLink;
-        var bam = currentBook.buy_links.find(function(book) {return book.name == 'Books-A-Million'});
-        if (bam != undefined) {myLink = bam.url} else {myLink = currentBook.amazon_product_url};
-        bookIcon.href = myLink;
+        bookIcon.onclick = correctArgMaker(currentBook.title, currentBook.author);
         var myImg = document.createElement('img');
         myImg.src = currentBook.book_image;
         myImg.alt = 'oops';
@@ -36,3 +42,5 @@ async function popBesties() {
     }
     new Glide('.glide', {perView: 3, focusAt: 'center'}).mount()
 }
+
+

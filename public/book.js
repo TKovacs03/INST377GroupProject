@@ -2,12 +2,17 @@ const host = window.location.origin;
 
 
 
-function loadPage(){
-    let titleHead = document.getElementById("title").innerHTML 
-    let authHead = document.getElementById("authHead")
-    titleHead.innerHTML = localStorage.getItem('title')
-    authHead.innerHTML = localStorage.getItem('author')
+function loadPage() {
+    title = localStorage.getItem('title');
+    author = localStorage.getItem('author');
+    titleHead = document.getElementById('title');
+    authHead = document.getElementById('auth');
+
+    titleHead.innerHTML = title;
+    authHead.innerHTML = author;
 }
+
+document.addEventListener('DOMContentLoaded', loadPage);
 
 async function addBook(){ 
     await fetch(`${host}/addBook`,{
@@ -24,4 +29,3 @@ async function addBook(){
     
 }
 
-window.onload = loadPage()
