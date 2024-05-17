@@ -1,31 +1,46 @@
-function bookInfo(title,author){
+function bookInfo(title,author, cover){
+    localStorage.setItem('cover', cover)
     localStorage.setItem('title',title)
     localStorage.setItem('author',author)
     window.location = 'book.html'
 }
 
 async function loadResults(query){
-    await fetch(`https://openlibrary.org/search.json?q=${query}`).
-    then((res) => res.json())
-    .then((res) =>{
-        resList = document.getElementById('resList')
-        resList.innerHTML = ''
-        function correctArgMaker(title, author) {
-            return () => bookInfo(title, author);
-        }
-        for (let i = 0; i < 10; i++) {
-            var currentBook = res.docs[i];
-            var bookLink = document.createElement('a');
-            bookLink.onclick = correctArgMaker(currentBook.title, currentBook.author_name[0]);
-            bookLink.innerHTML = `${currentBook.title} by ${currentBook.author_name[0]}`
-            var newEntry = document.createElement('li');
-            newEntry.appendChild(bookLink);
-            resList.appendChild(newEntry)
-            ;
-        }
-    });
+    var raw = await fetch(`https://openlibrary.org/search.json?q=${query}`).
+    then((res) => res.json());
+    var results = raw.docs;
+    var myTable = document.getElementById('resTable');
+    for (i=0; i<10; i++) {
+        var current = results[i];
+        var cover = `https://covers.openlibrary.org/b/id/${current.cover_i}-M.jpg`;
+        console.log(cover);
+        var author = current.author_name;
+        var title = current.title;
+        var linkButton =  document.createElement('button');
+        var newRow = document.createElement('tr');
+        var coverData = document.createElement('td');
+        var authorData = document.createElement('td');
+        var titleData = document.createElement('td');
+        var linkData = document.createElement('td');
+        coverData.innerHTML = `<img src=${cover} width=50 height=70>`;
+        authorData.innerHTML = author;
+        titleData.innerHTML = title;
+        linkButton.onclick = function() {
+            /*console.log(this);*/
+            var myCover = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.src;
+            var myTitle = this.parentElement.previousElementSibling.previousElementSibling.innerHTML;
+            var myAuthor = this.parentElement.previousElementSibling.innerHTML;
+            bookInfo(myTitle, myAuthor, myCover);
+        };
+        linkButton.innerHTML = 'Details';
+        linkData.appendChild(linkButton);
+        newRow.appendChild(coverData);
+        newRow.appendChild(titleData);
+        newRow.appendChild(authorData);
+        newRow.appendChild(linkData)
+        myTable.appendChild(newRow);
+    }
 }
-
 async function loadPage() {
 
     var query = localStorage.getItem('query')

@@ -3,8 +3,10 @@
         <title>Search Page</title>
         <script src="searchpage.js"></script>
     </head>
-    <body>        
-        <a href="mainpage.html">HomePage</a>
+    <body>
+        <nav>
+            <a href="mainpage.html">Main</a>
+        </nav>
         <div id="search">
         <form id="searchBar">
         <input type="text" id="usersearch" placeholder="Title, author, etc.">
@@ -14,8 +16,14 @@
         <h1>Search Results</h1>
 
     <div id="results">
-        <ul id="resList">
-        </ul>
+        <table id="resTable">
+            <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Link</th>
+            </tr>
+        </table>
     </div>
     </body>
 </html>

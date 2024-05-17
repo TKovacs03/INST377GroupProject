@@ -14,7 +14,6 @@ function loadBook(title,author){
     window.location = 'book.html'
 }
 
-
 async function popBesties() {
     const slideList = document.getElementById('besties');
     var today = getToday();
