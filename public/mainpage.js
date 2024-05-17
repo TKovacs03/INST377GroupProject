@@ -44,3 +44,9 @@ async function popBesties() {
 }
 
 
+function searchBook(){
+
+    query = document.getElementById('usersearch').value
+    localStorage.setItem('query', query)
+    window.location = 'searchpage.html'
+}
