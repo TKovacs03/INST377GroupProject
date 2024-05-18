@@ -8,9 +8,10 @@ function getToday() {
     return properDate;
 }
 
-function loadBook(title,author){
+function loadBook(title, author, cover){
     localStorage.setItem('title',title)
     localStorage.setItem('author',author)
+    localStorage.setItem('cover', cover)
     window.location = 'book.html'
 }
 
@@ -20,23 +21,20 @@ async function popBesties() {
     var myBooks = fetch(`https://api.nytimes.com/svc/books/v3/lists/${today}/combined-print-and-e-book-fiction.json?api-key=48tFA6TjZPbiddgyFZgHlijxAT88SpEz`)
     .then((res) => res.json());
     myBooks = await myBooks;
-    function correctArgMaker(title, author) {
-        return () => loadBook(title, author);
+    function correctArgMaker(title, author, cover) {
+        return () => loadBook(title, author, cover);
     }
     for (let i = 0; i < 10; i++) {
         var currentBook = myBooks.results.books[i];
-        var bookIcon = document.createElement('a');
-        bookIcon.onclick = correctArgMaker(currentBook.title, currentBook.author);
         var myImg = document.createElement('img');
+        myImg.onclick = correctArgMaker(currentBook.title, currentBook.author, currentBook.book_image);
         myImg.src = currentBook.book_image;
         myImg.alt = 'oops';
         myImg.height = 500;
         myImg.width = 300;
-        bookIcon.appendChild(myImg);
-        /*console.log(bookIcon);*/
         var newEntry = document.createElement('li');
         newEntry.className = 'glide__slide';
-        newEntry.appendChild(bookIcon);
+        newEntry.appendChild(myImg);
         slideList.appendChild(newEntry);
     }
     new Glide('.glide', {perView: 3, focusAt: 'center'}).mount()
