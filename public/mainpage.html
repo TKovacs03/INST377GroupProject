@@ -4,15 +4,21 @@
         <title>InfoBooks</title>
         <script src="mainpage.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-        <link rel="stylesheet" href="../glide.core.min.css">
+        <link rel="stylesheet" href="glide.core.min.css">
     </head>
     
-    <body onload="popBesties();">
-        <nav>
-            <a href="mainpage.html">Main</a>
-            <a href="login.html">Log In</a>
+    <body onload="popBesties();" style="background-color: bisque;">
+        
+        <nav id="main-nav">
+            <ul>
+                <a href="mainpage.html"><li>Main</li></a>
+                <a href="login.html"><li>Log In</li></a>
+            </ul>
         </nav>
-        <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png" width="100px">
+        <div class="img-container">
+            <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png" width="200px">
+        </div>
+        
         <h1 class="title">InfoBooks</h1>
         
         <!--will link to search page with results of whatever you searched, filters/advanced searching present-->
