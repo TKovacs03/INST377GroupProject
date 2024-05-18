@@ -23,6 +23,14 @@
     padding: 10px;
 }
 
+.img-container{
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
+
+
 /*# sourceMappingURL=glide.core.min.css.map */
 .glide{
     position:relative;
