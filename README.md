@@ -27,9 +27,13 @@ Every reader faces the challenge of finding and choosing what book to read next.
 
 **Features**
 _Recommendations_: Users can see the best selling/most popular books.
+
 _Comprehensive Book Database_: Our system offers access to a large and diverse collection of books.
+
 _User Library Management_: Users can create and manage their personal library, saving favorite books for future reference.
+
 _User Authentication_: There is a login and signup function for access to personalized features and settings.
+
 _Responsive Design_: The application is applicable for various devices, ensuring a seamless user experience across various platforms.
 
 **Technologies Used**
