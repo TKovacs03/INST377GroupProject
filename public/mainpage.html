@@ -4,7 +4,7 @@
         <title>InfoBooks</title>
         <script src="mainpage.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-        <link rel="stylesheet" href="../glide.core.min.css">
+        <link rel="stylesheet" href="glide.core.min.css">
     </head>
     
     <body onload="popBesties();" style="background-color: bisque;">
@@ -12,12 +12,11 @@
         <nav id="main-nav">
             <ul>
                 <a href="mainpage.html"><li>Main</li></a>
-                <a href="favoritedBooks.html"><li>Favorites</li></a>
                 <a href="login.html"><li>Log In</li></a>
             </ul>
         </nav>
         <div class="img-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRUXASQSIvxr6FtSVoCkn2dGjKxHGPDBZ0iQ&s" width="200px">
+            <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png" width="200px">
         </div>
         
         <h1 class="title">InfoBooks</h1>
@@ -26,7 +25,7 @@
         <div id="search">
             <form id="searchBar" onsubmit="searchBook(); return false">
             <input type="text" id="usersearch" placeholder="Title, author, etc.">
-            <button type="submit">Search</button>
+            <button class="button-8" type="submit">Search</button>
             </form>
         </div>
 
@@ -36,8 +35,8 @@
                 <ul id="besties" class="glide__slides"></ul>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&lt;</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&gt;</button>
+                <button class="button-8" data-glide-dir="<">&lt;</button>
+                <button class="button-8" data-glide-dir=">">&gt;</button>
             </div>
         </div> 
     
