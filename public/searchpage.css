@@ -1,0 +1,23 @@
+#main-nav{
+    background-color: crimson;
+    text-align: center;
+}
+
+#main-nav li{
+    display: inline-block;
+    position: relative;
+    color:dodgerblue;
+}
+
+
+#main-nav li:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+#main-nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+}
