@@ -45,9 +45,13 @@ Deployment: Vercel
 
 **Installation**
 Clone the repository: git clone https://github.com/USERNAME/REPOSITORY.git
+
 Navigate to the project directory: cd LibraryApp
+
 Install dependencies: npm install
+
 Start the server: npm start
+
 Access the application in your web browser
 
 **Usage**
