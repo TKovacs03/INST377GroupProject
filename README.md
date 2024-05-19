@@ -44,9 +44,9 @@ APIs: Open Library for book data retrieval
 Deployment: Vercel 
 
 **Installation**
-Clone the repository: git clone https://github.com/USERNAME/REPOSITORY.git
+Clone the repository
 
-Navigate to the project directory: cd LibraryApp
+Navigate to the project directory
 
 Install dependencies: npm install
 
