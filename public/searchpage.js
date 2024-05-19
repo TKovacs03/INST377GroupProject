@@ -26,11 +26,13 @@ async function loadResults(query){
         authorData.innerHTML = author;
         titleData.innerHTML = title;
         linkButton.onclick = function() {
-            /*console.log(this);*/
-            var myCover = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.src;
-            var myTitle = this.parentElement.previousElementSibling.previousElementSibling.innerHTML;
-            var myAuthor = this.parentElement.previousElementSibling.innerHTML;
-            bookInfo(myTitle, myAuthor, myCover);
+            /*console.log($(this).parent());*/
+            var myAuthor = $(this).parent().prev()[0];
+            var myTitle = $(myAuthor).prev()[0];
+            var myCover = $(myTitle).prev().children()[0];
+            console.log(myCover);
+            /*console.log($(this).parent().prev()[0]);*/
+            bookInfo(myTitle.innerHTML, myAuthor.innerHTML, myCover.src);
         };
         linkButton.innerHTML = 'Details';
         linkData.appendChild(linkButton);
