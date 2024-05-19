@@ -21,8 +21,11 @@ dependencies/node installs - express, nodemon, supabase
 Every reader faces the challenge of finding and choosing what book to read next. Since there is a large amount of literature that is available, it may make it difficult for users to find books that align with their interests. Our system aims to solve this problem by providing personalized book recommendations and an extensive database of titles across various genres and topics.
 
 **Stakeholders**
+
 - Readers who are seeking recommendations for new books to read.
+  
 - People looking to explore diverse genres and authors.
+  
 - Individuals interested in building a personal library.
 
 **Features**
@@ -37,10 +40,15 @@ _User Authentication_: There is a login and signup function for access to person
 _Responsive Design_: The application is applicable for various devices, ensuring a seamless user experience across various platforms.
 
 **Technologies Used**
+
 Frontend: HTML, CSS, JavaScript 
+
 Backend: Node.js, Express.js
+
 Database: PostgreSQL 
+
 APIs: Open Library for book data retrieval
+
 Deployment: Vercel 
 
 **Installation**
