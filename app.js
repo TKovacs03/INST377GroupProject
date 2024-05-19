@@ -15,7 +15,35 @@ app.get('/', (req, res) => {
     res.sendFile('public/login.html', {root:__dirname})
 })
 
+app.post('/addBook', async (req,res) => {
+    var id = req.body.user_id
+    var title = req.body.title
+    var author = req.body.author
+    var cover =req.body.cover
+    const {error} = await supabase
+        .from('books')
+        .insert({"title": title, 'author': author, "user_id" : id, "cover": cover})
+        if(error) {
+            console.log(error)
+            res.send(error)
+        }
+}
+)
 
+app.get('/userBooks', async (req,res) => {
+    var id = req.body.user_id
+    const {data,error} = await supabase
+        .from('books')
+        .select()
+        .eq('user_id',id)
+        if (error){
+            res.send({error})
+        }
+        else{
+            res.send(data)
+        }
+}
+)
 
 app.post('/signup', async (req,res) => {
     var username = req.body.username
@@ -38,23 +66,12 @@ app.get('/login', async (req,res) => {
         .select()
         .eq('username',user)
         if(error){
-            res.send({})
+            res.send({error})
         }
         else{
             res.send(data)
         }
 })
-
-
-app.get('/test', async (req, res) => {
-
-    const {data, error} = await supabase
-        .from('users')
-        .select()
-
-    res.send(data)
-})
-
 
 app.listen(port, () => {
 

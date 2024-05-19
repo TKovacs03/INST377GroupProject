@@ -1,4 +1,4 @@
-
+const host = window.location.origin;
 function getToday() {
     const date = new Date();
     var dd = String(date.getDate()).padStart(2, '0');
@@ -42,7 +42,6 @@ async function popBesties() {
 
 
 function searchBook(){
-
     query = document.getElementById('usersearch').value
     localStorage.setItem('query', query)
     window.location = 'searchpage.html'
