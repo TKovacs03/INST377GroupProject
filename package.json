@@ -2,7 +2,7 @@
   "name": "libraryapp",
   "version": "1.0.0",
   "description": "database password: qfngL9mevBz7ffJv",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon -e '*'"
   },
