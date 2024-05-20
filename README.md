@@ -2,6 +2,7 @@
 
 README
 
+I spent 2 hours trying to get vercel to work, it just wasn't gonna happen
 
 For our project, we created an application that will allow users to search books. Our project uses the OpenLibrary API which will give you information on the works such as the artist and different editions of the works. Users will then be able to add their favorite books to our favorited books database. We intend for our project to work on all browsers, including Chrome, iOS and Android. 
 
