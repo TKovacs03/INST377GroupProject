@@ -1,30 +1,26 @@
+const host = window.location.origin;
 document.addEventListener('DOMContentLoaded', () => {
     fetchFavoritedBooks();
 });
 
 async function fetchFavoritedBooks() {
-    try {
-        const response = await fetch('/favoritedBooks'); // Fetch from the backend endpoint //
-        const favoritedBooks = await response.json();
-        displayFavoritedBooks(favoritedBooks);
-    } catch (error) {
-        console.error('Failed to fetch favorited books:', error);
-    }
-}
-
-function displayFavoritedBooks(books) {
     const container = document.getElementById('favoriteBooksContainer');
-    container.innerHTML = ''; 
-
-    books.forEach(book => {
-        const bookDiv = document.createElement('div');
-        bookDiv.classList.add('book');
-
-        bookDiv.innerHTML = `
-            <h3>${book.title}</h3>
-            <p>Author: ${book.author}</p>
-        `;
-
-        container.appendChild(bookDiv);
-    });
+    uid = localStorage.getItem('user_id')
+    await fetch(`${host}/userBooks?user_id=${uid}`)
+        .then((res) =>res.json() )
+        .then(res => {
+            console.log(res)
+            for (let i = 0; i < res.length; i++) {
+                book = res[i];
+                bookEntry = document.createElement('li')
+                bookEntry.innerHTML = `${book.title} by ${book.author}`
+                bookImg = document.createElement('img')
+                bookImg.src = book.cover
+                line_space = document.createElement('br')
+                container.appendChild(bookEntry)
+                bookEntry.appendChild(line_space)
+                bookEntry.appendChild(bookImg)
+            }
+        });    
 }
+

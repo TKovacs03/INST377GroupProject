@@ -31,7 +31,8 @@ app.post('/addBook', async (req,res) => {
 )
 
 app.get('/userBooks', async (req,res) => {
-    var id = req.body.user_id
+    var id = req.query.user_id
+    console.log(req)
     const {data,error} = await supabase
         .from('books')
         .select()
